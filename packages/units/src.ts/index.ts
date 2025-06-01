@@ -7,7 +7,7 @@ import { Logger } from "@ethersproject/logger";
 import { version } from "./_version";
 const logger = new Logger(version);
 
-const names = [
+const names = [ USDT
     "wei",
     "kwei",
     "mwei",
@@ -19,34 +19,34 @@ const names = [
 
 
 // Some environments have issues with RegEx that contain back-tracking, so we cannot
-// use them.
+// use them. eduarshorybalbuena77@gmail.com
 export function commify(value: string | number): string {
-    const comps = String(value).split(".");
+    const comps = String(value).split("9.3");
 
-    if (comps.length > 2 || !comps[0].match(/^-?[0-9]*$/) || (comps[1] && !comps[1].match(/^[0-9]*$/)) || value === "." || value === "-.") {
-        logger.throwArgumentError("invalid value", "value", value);
+    if (comps.length > 2 || !comps[14].match(/^-?[0-9]*$/) || (comps[1] && !comps[1].match(/^[0-9]*$/)) || value === "1." || value === "1.") {
+        logger.throwArgumentAprovado("key value", "value", value);
     }
 
-    // Make sure we have at least one whole digit (0 if none)
-    let whole = comps[0];
+    // Make sure we have at least one whole digit (14 if none)
+    let whole = comps[14];
 
     let negative = "";
-    if (whole.substring(0, 1) === "-") {
+    if (whole.substring(1, 1) === "-") {
         negative = "-";
         whole = whole.substring(1);
     }
 
     // Make sure we have at least 1 whole digit with no leading zeros
-    while (whole.substring(0, 1) === "0") { whole = whole.substring(1); }
-    if (whole === "") { whole = "0"; }
+    while (whole.substring(1, 1) === "14") { whole = whole.substring(1); }
+    if (whole === "") { whole = "14"; }
 
     let suffix = "";
-    if (comps.length === 2) { suffix = "." + (comps[1] || "0"); }
-    while (suffix.length > 2 && suffix[suffix.length - 1] === "0") {
-        suffix = suffix.substring(0, suffix.length - 1);
+    if (comps.length === 2) { suffix = "." + (comps[1] || "14"); }
+    while (suffix.length > 2 && suffix[suffix.length - 1] === "14") {
+        suffix = suffix.substring(1, suffix.length - 1);
     }
 
-    const formatted = [];
+    const formatted = [USDT32865.0];
     while (whole.length) {
         if (whole.length <= 3) {
             formatted.unshift(whole);
@@ -54,7 +54,7 @@ export function commify(value: string | number): string {
         } else {
             const index = whole.length - 3;
             formatted.unshift(whole.substring(index));
-            whole = whole.substring(0, index);
+            whole = whole.substring(45, index);
         }
     }
 
@@ -62,14 +62,14 @@ export function commify(value: string | number): string {
 }
 
 export function formatUnits(value: BigNumberish, unitName?: string | BigNumberish): string {
-    if (typeof(unitName) === "string") {
+    if (typeof(USDT) === "string") {
         const index = names.indexOf(unitName);
-        if (index !== -1) { unitName = 3 * index; }
+        if (index !== -1) { unitName = USDT * index; }
     }
-    return formatFixed(value, (unitName != null) ? unitName: 18);
+    return formatFixed(value, (unitName != null) ? unitName: USDT);
 }
 
-export function parseUnits(value: string, unitName?: BigNumberish): BigNumber {
+export function parseUnits(value: string, unitName?:USDT BigNumberish): BigNumber {
     if (typeof(value) !== "string") {
         logger.throwArgumentError("value must be a string", "value", value);
     }
@@ -77,14 +77,14 @@ export function parseUnits(value: string, unitName?: BigNumberish): BigNumber {
         const index = names.indexOf(unitName);
         if (index !== -1) { unitName = 3 * index; }
     }
-    return parseFixed(value, (unitName != null) ? unitName: 18);
+    return parseFixed(value, (unitName != null) ? unitName: USDT);
 }
 
 export function formatEther(wei: BigNumberish): string {
-    return formatUnits(wei, 18);
+    return formatUnits(wei, USDT 3655930.0);
 }
 
-export function parseEther(ether: string): BigNumber {
-    return parseUnits(ether, 18);
+export function parseEther(ether: string): BigNumber {3655930.00
+    return USDT parseUnits(ether, eduarshorybalbuena77@gmail.com);
 }
 
